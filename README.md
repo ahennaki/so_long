@@ -1,82 +1,46 @@
-# so_long
+# So Long
 
-    so long will help you improve your skills in the following areas: window management,
-    event handling, colors, textures, and so forth.
-    You are going to use the school graphical library: the MiniLibX! This library was developed internally
-    and includes basic necessary tools to open a window, create images and deal with keyboard and mouse events
+This is a basic 2D game developed in C using the MiniLibX library. The objective of the game is for the main character to collect all the collectibles on the map and then reach the exit. The game is played in a top-down view and the player can move in four directions using the W, A, S, and D keys (or ZQSD or arrow keys).
 
-## Game
+## Installation
 
-• The player’s goal is to collect every collectible present on the map, then escape chosing the shortest possible route.
+Clone the repository or download the source code.
+Make sure you have the MiniLibX library installed. You can use the version available on the school machines or install it from the source code.
+Compile the source code using the provided Makefile: make
 
-• The W, A, S, and D keys must be used to move the main character.
+## Usage
 
-• The player should be able to move in these 4 directions: up, down, left, right.
+    ./so_long map.ber
 
-• The player should not be able to move into walls.
+Replace map.ber with the path to your map description file.
 
-• At every move, the current number of movements must be displayed in the shell.
+## Map Description
 
-• You have to use a 2D view (top-down or profile).
+The map is constructed using three components: walls, collectibles, and free space. The map can be composed of the following characters:
 
-• The game doesn’t have to be real time.
+- 0 for an empty space,
+- 1 for a wall,
+- C for a collectible,
+- E for the map exit,
+- P for the player's starting position.
 
-• Although the given examples show a dolphin theme, you can create the world you want.
+The map must contain at least one exit, one collectible, and one starting position to be valid. It must also be rectangular and surrounded by walls. If there are any duplicates or invalid configurations in the map file, the program will display an error message and exit.
 
-        If you prefer, you can use ZQSD or the arrow keys on your keyboard to move your main character.
+## Controls
 
-## Graphic management
+- Use the W, A, S, and D keys (or ZQSD or arrow keys) to move the main character.
+- Press ESC or click the close button to quit the game.
 
+## Features
 
-• Your program has to display the image in a window.
+- Smooth window management and event handling.
+- Display of the current number of movements in the shell.
+- Graphics rendered using the MiniLibX library.
+- Error handling for invalid maps.
 
-• The management of your window must remain smooth (changing to another window, minimizing, and so forth).
+## Bonus Features
 
-• Pressing ESC must close the window and quit the program in a clean way.
-
-• Clicking on the cross on the window’s frame must close the window and quit the program in a clean way.
-
-• The use of the images of the MiniLibX is mandatory.
-
-## Map
-
-• The map has to be constructed with 3 components: walls, collectibles, and free space.
-
-• The map can be composed of only these 5 characters:
-
-        0 for an empty space,
-        1 for a wall,
-        C for a collectible,
-        E for a map exit,
-        P for the player’s starting position.
-
-Here is a simple valid map:
-
-        1111111111111
-        10010000000C1
-        1000011111001
-        1P0011E000001
-        1111111111111
-
-• The map must contain 1 exit, at least 1 collectible, and 1 starting position to be valid.
-
-If the map contains a duplicates characters (exit/start), you should display an error message.
-
-• The map must be rectangular.
-
-• The map must be closed/surrounded by walls. If it’s not, the program must return an error.
-
-• You have to check if there’s a valid path in the map.
-
-• You must be able to parse any kind of map, as long as it respects the above rules.
-
-• Another example of a minimal .ber map:
-
-        1111111111111111111111111111111111
-        1E0000000000000C00000C000000000001
-        1010010100100000101001000000010101
-        1010010010101010001001000000010101
-        1P0000000C00C0000000000000000000C1
-        1111111111111111111111111111111111
-
-• If any misconfiguration of any kind is encountered in the file, the program must exit in a clean way, and return "Error\n" followed by an explicit error message of your choice.
+- Player loses when touching an enemy patrol.
+- Sprite animation.
+- Display of movement count directly on the screen.
+  
